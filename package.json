@@ -1,6 +1,6 @@
 {
   "name": "check-cli-update",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "auto generate update message for CLI",
   "files": [
     "dist"
