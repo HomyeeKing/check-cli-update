@@ -1,10 +1,10 @@
-# my-ts-lib
+# check-update
 
-[![npm version](https://badgen.net/npm/v/my-ts-lib)](https://npm.im/my-ts-lib) [![npm downloads](https://badgen.net/npm/dm/my-ts-lib)](https://npm.im/my-ts-lib)
+[![npm version](https://badgen.net/npm/v/check-update)](https://npm.im/check-update) [![npm downloads](https://badgen.net/npm/dm/check-update)](https://npm.im/check-update)
 
 ## Using this template
 
-- Search `my-ts-lib` and replace it with your custom package name.
+- Search `check-update` and replace it with your custom package name.
 - enter `package.json` and replace the `<your_git_repo_url>` with your repo url
 
 Features:
@@ -19,6 +19,6 @@ To skip CI (GitHub action), add `skip-ci` to commit message. To skip release, ad
 ## Install
 
 ```bash
-npm i my-ts-lib
+npm i check-update
 ```
 
