@@ -16,10 +16,10 @@
   },
   "homepage": "https://github.com/HomyeeKing/check-cli-update",
   "main": "dist/index.js",
-  "module": "dist/esm/index.mjs",
+  "module": "dist/index.mjs",
   "exports": {
     "require": "./dist/index.js",
-    "import": "./dist/esm/index.mjs"
+    "import": "./dist/index.mjs"
   },
   "types": "./dist/index.d.ts",
   "scripts": {
