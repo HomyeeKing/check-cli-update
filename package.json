@@ -1,7 +1,7 @@
 {
-  "name": "check-update",
-  "version": "0.0.0",
-  "description": "My awesome typescript library",
+  "name": "check-cli-update",
+  "version": "1.0.0",
+  "description": "auto generate update message for CLI",
   "publishConfig": {
     "access": "public"
   },
@@ -10,14 +10,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/HomyeeKing/check-update"
+    "url": "https://github.com/HomyeeKing/check-cli-update"
   },
   "license": "MIT",
   "author": "HomyeeKing",
   "bugs": {
-    "url": "https://github.com/HomyeeKing/check-update/issues"
+    "url": "https://github.com/HomyeeKing/check-cli-update/issues"
   },
-  "homepage": "https://github.com/HomyeeKing/check-update",
+  "homepage": "https://github.com/HomyeeKing/check-cli-update",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "exports": {
@@ -26,16 +26,25 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm run build-fast -- --dts-resolve",
-    "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "build": "tsup",
+    "test": "vitest",
+    "cov": "vitest --coverage",
+    "preversion": "npm run test -- --run && npm run build",
+    "postversion": "git push",
+    "publish:pre": "sh scripts/publish.sh pre",
+    "publish:prod": "sh scripts/publish.sh prod"
   },
   "devDependencies": {
     "@egoist/prettier-config": "1.0.0",
-    "prettier": "2.5.1",
-    "tsup": "5.11.13",
-    "typescript": "4.5.4",
-    "vitest": "0.2.5"
+    "@types/node": "^20.4.2",
+    "@vitest/coverage-v8": "^0.33.0",
+    "prettier": "3.0.0",
+    "semver": "^7.5.4",
+    "tsup": "7.1.0",
+    "typescript": "5.1.6",
+    "vitest": "0.33.0"
+  },
+  "dependencies": {
+    "pkg-up": "^4.0.0"
   }
 }
