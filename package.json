@@ -15,11 +15,11 @@
     "url": "https://github.com/HomyeeKing/check-cli-update/issues"
   },
   "homepage": "https://github.com/HomyeeKing/check-cli-update",
-  "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.mjs",
   "exports": {
     "require": "./dist/index.js",
-    "import": "./dist/esm/index.js"
+    "import": "./dist/esm/index.mjs"
   },
   "types": "./dist/index.d.ts",
   "scripts": {

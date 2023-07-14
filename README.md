@@ -14,7 +14,9 @@ npm i check-cli-update
 
 ```ts
 import { checkUpdate } from "check-cli-update"
-checkUpdate()
+checkUpdate({
+  cwd: "your cli folder location",
+})
 ```
 
 take `@homy/gito-core` for example, if the version you use is `0.0.1`,you will see a message like
@@ -34,6 +36,6 @@ checkUpdate({
       pkgName: string
     }) {},
 
-  cwd:xxx
+  cwd:'xxx'
 })
 ```
