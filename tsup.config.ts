@@ -7,9 +7,5 @@ export default defineConfig({
   format: ["esm", "cjs"],
   target: "node16",
   skipNodeModulesBundle: true,
-  outExtension() {
-    return {
-      js: `.js`,
-    }
-  },
+  legacyOutput: true,
 })
