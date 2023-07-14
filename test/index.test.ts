@@ -1,7 +1,8 @@
 import { getLatestVersion } from "@/npm"
-import { checkUpdate, getCWDPackageJson } from "../src"
+import * as exports from "../src"
 import path from "path"
 
+const { checkUpdate, getCWDPackageJson } = exports
 test("getCWDPackageJson", async () => {
   const cwd = path.join(__dirname, "./fixtures/lowVersion")
   expect((await getCWDPackageJson(cwd)) as string).toMatchObject({
@@ -58,5 +59,12 @@ describe("checkUpdate", () => {
     })
     expect(warnSpy).not.toBeCalled()
     expect(fn).not.toBeCalled()
+  })
+
+  test("get caller dirname", async () => {
+    const getCWDPackageJsonSpy = vi.spyOn(exports, "getCWDPackageJson")
+
+    await checkUpdate()
+    expect(getCWDPackageJsonSpy).toBeCalledWith(__dirname)
   })
 })

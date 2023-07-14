@@ -12,16 +12,20 @@ export const getCWDPackageJson = async (cwd?: string) => {
   return JSON.parse(fs.readFileSync(pjsonPath, { encoding: "utf-8" }))
 }
 
-export async function checkUpdate(options: {
+export async function checkUpdate(options?: {
   customTips?: (p: {
     latestVersion: string
     curVersion: string
     pkgName: string
   }) => void
   /** the directory where your cli located*/
-  cwd: string
+  cwd?: string
 }) {
-  const { customTips, cwd } = options || {}
+  const errorStack = new Error().stack!
+  const errorStackArr = errorStack.split("\n")
+  console.log(errorStackArr[2].match(/\/([^\/:]+\/)*[^\/:]+\.\w+/))
+  const callerDirname = errorStackArr[2].match(/\/([^\/:]+\/)*[^\/:]+\.\w+/)![0]
+  const { customTips, cwd = callerDirname } = options || {}
   const pjson = await getCWDPackageJson(cwd)
   const latestVersion = await getLatestVersion(pjson.name)
   try {
