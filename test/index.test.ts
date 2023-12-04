@@ -5,14 +5,14 @@ import path from "path"
 test("getCWDPackageJson", async () => {
   const cwd = path.join(__dirname, "./fixtures/lowVersion")
   expect((await getCWDPackageJson(cwd)) as string).toMatchObject({
-    name: "@homy/gito-core",
-    version: "0.0.1",
+    name: "tj",
+    version: "2.0.0",
   })
 })
 
 test("getLatestVersion", async () => {
-  expect(await getLatestVersion("@homy/gito-core")).toBe("1.0.0")
-  expect(await getLatestVersion("pkg-up")).toBe("4.0.0")
+  expect(await getLatestVersion("tj")).toBe("2.1.0")
+  expect(await getLatestVersion("ajsdkljaskld")).toBe("0.0.0")
 })
 
 describe("checkUpdate", () => {
@@ -29,7 +29,7 @@ describe("checkUpdate", () => {
 
     expect(warnSpy).toBeCalledWith(
       "\x1b[33m%s",
-      `The latest version of @homy/gito-core is 1.0.0 and you have 0.0.1. Update it now: npm i -g @homy/gito-core`,
+      `The latest version of tj is 2.1.0 and you have 2.0.0. Update it now: npm i -g tj`,
     )
   })
 
@@ -39,9 +39,9 @@ describe("checkUpdate", () => {
     await checkUpdate({
       customTips(p) {
         expect(p).toMatchObject({
-          latestVersion: "1.0.0",
-          curVersion: "0.0.1",
-          pkgName: "@homy/gito-core",
+          latestVersion: "2.1.0",
+          curVersion: "2.0.0",
+          pkgName: "tj",
         })
       },
       cwd,
