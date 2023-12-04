@@ -23,6 +23,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
+    "start": "tsup --watch",
     "build": "tsup",
     "test": "vitest",
     "cov": "vitest --coverage",

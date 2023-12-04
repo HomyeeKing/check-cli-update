@@ -11,7 +11,10 @@ export async function getLatestVersion(
           {
             encoding: "utf-8",
           },
-          (err, latestVersion) => {
+          (err, latestVersion, stderr) => {
+            if (stderr.includes("404")) {
+              return resolve("0.0.0")
+            }
             if (err) return reject(err)
             resolve(latestVersion.trim())
           },
