@@ -7,9 +7,9 @@ export async function getLatestVersion(
   if (pkgName) {
     return new Promise((resolve, reject) => {
       try {
-        const registryArg = registry ? ` --registry=${registry}` : ""
+        const registryArg = registry ? `--registry=${registry}` : ""
         exec(
-          `npm show ${pkgName} version${registryArg}`,
+          `npm show ${pkgName} version ${registryArg}`,
           {
             encoding: "utf-8",
           },
@@ -18,7 +18,7 @@ export async function getLatestVersion(
             resolve(latestVersion.trim())
           },
         )
-      } catch (error) {}
+      } catch (error) { }
     })
   }
   return undefined

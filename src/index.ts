@@ -26,7 +26,7 @@ export async function checkUpdate(options: {
   const {
     customTips,
     cwd,
-    registry = "https://registry.npmjs.org/",
+    registry,
   } = options || {};
   const pjson = await getCWDPackageJson(cwd);
   const latestVersion = await getLatestVersion(pjson.name, registry);
