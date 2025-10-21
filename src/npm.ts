@@ -2,12 +2,14 @@ import { exec } from "child_process"
 
 export async function getLatestVersion(
   pkgName: string,
+  registry?: string,
 ): Promise<string | undefined> {
   if (pkgName) {
     return new Promise((resolve, reject) => {
       try {
+        const registryArg = registry ? ` --registry=${registry}` : ""
         exec(
-          `npm show ${pkgName} version`,
+          `npm show ${pkgName} version${registryArg}`,
           {
             encoding: "utf-8",
           },
