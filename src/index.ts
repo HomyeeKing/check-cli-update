@@ -1,5 +1,6 @@
 import fs from "fs";
 import { pkgUp } from "pkg-up";
+import semver from "semver";
 import { getLatestVersion } from "./npm";
 
 /**
@@ -23,16 +24,10 @@ export async function checkUpdate(options: {
   /** optional npm registry url */
   registry?: string;
 }) {
-  const {
-    customTips,
-    cwd,
-    registry,
-  } = options || {};
+  const { customTips, cwd, registry } = options || {};
   const pjson = await getCWDPackageJson(cwd);
   const latestVersion = await getLatestVersion(pjson.name, registry);
   try {
-    // @ts-expect-error need developer to install semver
-    const semver = (await import("semver")).default;
     if (latestVersion && semver.gt(latestVersion, pjson.version)) {
       if (customTips) {
         customTips({
