@@ -18,6 +18,9 @@ importers:
       '@types/node':
         specifier: ^20.4.2
         version: 20.4.2
+      '@types/semver':
+        specifier: ^7.7.1
+        version: 7.7.1
       '@vitest/coverage-v8':
         specifier: ^0.33.0
         version: 0.33.0(vitest@0.33.0)
@@ -236,6 +239,9 @@ packages:
 
   '@types/node@20.4.2':
     resolution: {integrity: sha512-Dd0BYtWgnWJKwO1jkmTrzofjK2QXXcai0dmtzvIBhcA+RsG5h8R3xlyta0kGOZRNfL9GuRtb1knmPEhQrePCEw==}
+
+  '@types/semver@7.7.1':
+    resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
 
   '@vitest/coverage-v8@0.33.0':
     resolution: {integrity: sha512-Rj5IzoLF7FLj6yR7TmqsfRDSeaFki6NAJ/cQexqhbWkHEV2htlVGrmuOde3xzvFsCbLCagf4omhcIaVmfU8Okg==}
@@ -1013,6 +1019,8 @@ snapshots:
   '@types/istanbul-lib-coverage@2.0.4': {}
 
   '@types/node@20.4.2': {}
+
+  '@types/semver@7.7.1': {}
 
   '@vitest/coverage-v8@0.33.0(vitest@0.33.0)':
     dependencies:
